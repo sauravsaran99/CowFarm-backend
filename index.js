@@ -9,7 +9,13 @@ const connectDB = require("./src/config/connectDb");
 const app = express();
 app.use(
   cors({
-    origin: ["http://localhost:3001", "https://smalljoys-frontend.vercel.app", "https://smalljoys-frontend.vercel.app/login"],
+    origin: [
+      "http://localhost:3001",
+      "https://smalljoys-frontend.vercel.app",
+      "https://smalljoys-frontend.vercel.app/login",
+    ],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
   })
 );
 app.use(express.json());
