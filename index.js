@@ -7,17 +7,18 @@ const notesRoutes = require("./src/routes/noteRoutes");
 const connectDB = require("./src/config/connectDb");
 
 const app = express();
-app.use(
+
+const options = [
   cors({
-    origin: [
-      "http://localhost:3001",
-      "https://smalljoys-frontend.vercel.app",
-      "https://smalljoys-frontend.vercel.app/login",
-    ],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    origin: '*',
+    methods: '*',
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   })
-);
+];
+
+app.use(options);
+
 app.use(express.json());
 
 // Connect to MongoDB
