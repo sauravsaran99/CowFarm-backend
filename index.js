@@ -24,6 +24,11 @@ app.use(express.json());
 connectDB();
 
 // Routes
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/notes", notesRoutes);
 // app.use('/notes', noteRoutes);
